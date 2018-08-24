@@ -1,0 +1,15 @@
+<div *ngFor="let item of messages">
+  {{item.createdAt| date: 'M/d/yy'}} {{item.createdAt| date: 'h:mm:ss'}}: {{item.message}}
+</div>
+
+
+<form name="chatForm" (ngSubmit)="chatForm.form.valid && sendMessage(chatForm)" #chatForm="ngForm">
+  <div class="form-group" [ngClass]="{ 'has-error': chatForm.submitted && !messageText.valid }">
+    <label for="message">Message</label>
+    <textarea  id="message" class="form-control" name="message" [(ngModel)]="message" required #messageText="ngModel"></textarea>
+    <div *ngIf="chatForm.submitted && !messageText.valid" class="help-block">Message  is required</div>
+  </div>
+  <div class="form-group">
+    <button class="btn btn-primary" >Send</button>
+  </div>
+</form>

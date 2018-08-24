@@ -1,10 +1,8 @@
-import {
-    UserService
-} from '../../services';
+
 import { SUCCESS_CODE } from '../../configs/status-codes';
 import { BadRequest } from '../../errors';
 import Utils from '../../helpers/utils';
-import { io } from '../../../server';
+import {UserService} from "../../services/user.service";
 
 export class AuthController {
 
@@ -30,12 +28,6 @@ export class AuthController {
             user = await UserService.create(payload);
 
             const tokenInfo = Utils.signJWTToken(user);
-
-            /*io.on('connection', function (socket) {
-                socket.emit('news', { hello: 'world' });
-                socket.on('my other event', function (data) {
-                    console.log(data);
-            });*/
 
             return res.status(SUCCESS_CODE).json({
                 currentUser: tokenInfo.token,

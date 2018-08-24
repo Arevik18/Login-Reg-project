@@ -62,7 +62,9 @@ function mongoConnection() {
         });
     });
 
+
     return mongoose;
 };
+
 
 export default mongoConnection();
