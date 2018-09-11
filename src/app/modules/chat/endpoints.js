@@ -8,4 +8,8 @@ export default (router) => {
 
     router.post('/', ...middlewares(schemas, 'add'), ChatController.add);
 
+    router.delete('/:id', ...middlewares(schemas, 'delete'), ChatController.delete);
+
+    router.put('/:id', ...middlewares(schemas, 'update'), ChatController.update);
+
 };

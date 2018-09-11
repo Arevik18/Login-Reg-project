@@ -16,6 +16,8 @@ import { HomeComponent } from './home/index';
 import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
 import { ChatComponent } from './chat/chat.component';
+import {EditComponent} from './chat/edit/edit.component';
+import {ModalModule} from "ngx-bootstrap";
 
 
 
@@ -25,6 +27,7 @@ import { ChatComponent } from './chat/chat.component';
         BrowserModule,
         FormsModule,
         HttpClientModule,
+        ModalModule.forRoot(),
         routing,
      ],
     declarations: [
@@ -34,6 +37,7 @@ import { ChatComponent } from './chat/chat.component';
         LoginComponent,
         RegisterComponent,
         ChatComponent,
+        EditComponent,
             ],
     providers: [
         AuthGuard,

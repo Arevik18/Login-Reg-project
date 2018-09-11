@@ -8,5 +8,9 @@ export default {
     message:{
         type:String
     },
-        authentication: true
+        authentication: true,
+    messages:{
+        type:String
+    },
+
     };

@@ -1,8 +1,12 @@
+
 <div *ngFor="let item of messages">
   {{item.createdAt| date: 'M/d/yy'}} {{item.createdAt| date: 'h:mm:ss'}}: {{item.message}}
+
+  <div class="btn-group" >
+    <button    (click)="modal.showModal(item._id, item.message)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+    <button  (click)="deleteMessage(item._id)" data-toggle="modal" data-target="#remove"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+  </div>
 </div>
-
-
 <form name="chatForm" (ngSubmit)="chatForm.form.valid && sendMessage(chatForm)" #chatForm="ngForm">
   <div class="form-group" [ngClass]="{ 'has-error': chatForm.submitted && !messageText.valid }">
     <label for="message">Message</label>
@@ -13,3 +17,5 @@
     <button class="btn btn-primary" >Send</button>
   </div>
 </form>
+
+<app-edit #modal></app-edit >
